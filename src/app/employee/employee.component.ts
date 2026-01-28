@@ -73,6 +73,14 @@ export class EmployeeComponent {
       next: (result: any) => {
         console.log(result)
         this.getEmployees();
+        Swal.fire({
+          icon: 'success',
+          title: 'Sikeres módosítás',
+          timer: 1500,
+          didRender: () => {
+            this.showModal = false;
+          }
+        })
       },
       error: (err: any) => {}
     })
@@ -86,7 +94,6 @@ export class EmployeeComponent {
   }
 
   delete(id: number) {
-    // this.deleteAction(id)
     Swal.fire({
       title: "Biztos?",
       text: "Ez nem visszavonható!",

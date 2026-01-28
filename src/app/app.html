@@ -1,6 +1,12 @@
 <nav class="nav justify-content-center">
   <a class="nav-link" routerLink="">Főoldal</a>
-  <a class="nav-link" routerLink="login">Belépés</a>
+  
+  @if(auth.isAuthenticated()) {
+    <a class="nav-link" (click)="logout()">Kilépés</a>
+  }@else {
+    <a class="nav-link" routerLink="login">Belépés</a>
+  }
+ 
   <a class="nav-link" routerLink="employee">Dolgozók</a>
 </nav>
 

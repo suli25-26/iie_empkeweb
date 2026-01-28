@@ -36,6 +36,7 @@ export class LoginComponent {
       next: (response: any) => {
         console.log(response)
         localStorage.setItem('token', response.accessToken)
+        this.auth.loginSuccess()
         this.router.navigate(['employee'])
       },
       error: () => {
